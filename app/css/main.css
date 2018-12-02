@@ -29,21 +29,13 @@ a:hover {
 
 .navbar {
 	padding: 0;
-
-	background-color: #222;
-}
-
-@media screen and (min-width: 992px) {
-
-	.navbar {
-		background-color: transparent;
-	}
-
 }
 
 /* .navbar-toggler */
 
 .navbar-toggler {
+	z-index: 1;
+
 	height: 70px;
 	margin: 0;
 	padding: 0;
@@ -65,6 +57,10 @@ a:hover {
 	transition: all 250ms linear;
 
 	cursor: pointer;
+}
+
+.navbar-toggler[aria-expanded="true"] {
+	margin-left: auto;
 }
 
 .navbar-toggler[aria-expanded="true"] .icon-bar_1 {
@@ -105,6 +101,81 @@ a:hover {
 
 }
 
+.navbar-nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 600px;
+
+	background-color: #000;
+}
+
+.navbar-collapse {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.navbar-collapse.collapsing {
+	height: 600px;
+
+	transform: scale(0);
+
+	transition: transform 250ms ease-in-out;
+}
+
+.navbar-collapse.show {
+	height: 600px;
+
+	transform: scale(1);
+
+	transition: transform 250ms ease-in-out;
+}
+
+@media screen and (min-width: 992px) {
+
+	.navbar-nav {
+		height: 100vh;
+	}
+
+	.navbar-collapse.collapsing {
+		height: 100vh;
+	}
+
+	.navbar-collapse.show {
+		height: 100vh;
+	}
+
+}
+
+.nav-item {
+	margin-bottom: 30px;
+}
+
+.nav-link {
+	padding: 0;
+
+	font-size: 24px;
+	color: #fff;
+	text-transform: uppercase;
+
+	transition: color 150ms ease-in-out;
+}
+
+.nav-link:hover {
+	color: #d87843;
+}
+
+@media screen and (min-width: 992px) {
+
+	.nav-link {
+		font-size: 30px;
+	}
+
+}
+
 /**/
 
 /**/
@@ -112,18 +183,6 @@ a:hover {
 
 
 /* .intro */
-
-.header + section {
-	margin-top: 70px;
-}
-
-@media screen and (min-width: 992px) {
-
-	.header + section {
-		margin-top: 0;
-	}
-
-}
 
 .intro {
 	background-image: url(../img/intro.jpg);
